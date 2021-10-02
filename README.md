@@ -101,9 +101,9 @@
 - 에러 처리 진행 예정
 
 # 참고 
-https://matplotlib.org/stable/index.html
-https://ehclub.net/677
-https://zephyrus1111.tistory.com/36
-https://truman.tistory.com/103
-https://wikidocs.net/141547
-https://www.price.go.kr/tprice/portal/main/main.do
+- https://matplotlib.org/stable/index.html
+- https://ehclub.net/677
+- https://zephyrus1111.tistory.com/36
+- https://truman.tistory.com/103
+- https://wikidocs.net/141547
+- https://www.price.go.kr/tprice/portal/main/main.do
