@@ -1,0 +1,51 @@
+<!--
+  조각페이지를 활용한 <nav> 입니다.
+-->
+
+<nav>
+    <ul class="nav nav-tabs" style="width:100%;">
+      <li class="nav-item" style="margin-right:50%;">
+        <a id="home" class="nav-link" href="/">Home</a>
+      </li>
+      <li class="nav-item">
+        <a id="productList" class="nav-link" href="/product/goodInfoAll">상품 목록</a>
+      </li>
+      <li class="nav-item">
+        <a id="storeList" class="nav-link" href="/store/storeInfoAll">판매점 목록</a>
+      </li>
+      <li class="nav-item">
+        <a id="storeCount" class="nav-link" href="/store/storeNumber">지역별 판매점 수</a>
+      </li>
+      <li class="nav-item">
+        <a id="productSearch" class="nav-link" href="/product/">상품 정보 검색</a>
+      </li>
+      <li class="nav-item">
+        <a id="storeSearch" class="nav-link" href="/store/">판매점 정보 검색</a>
+      </li>
+      <li class="nav-item">
+        <a id="priceSearch" class="nav-link" href="/price/">가격 정보 검색</a>
+      </li>
+    </ul>
+</nav>
+<!--<script type="text/javascript" src="/static/js/nav.js"></script>-->
+<script>
+  const root = 'http://localhost:5000';
+  const root_size = root.length; // 21
+  const url = window.location.href;
+  const url_length = url.length;
+  let parsing_url = url.slice(root_size, url_length);
+
+  if(parsing_url  == "/") {
+    let $home = document.querySelector("#home");
+    $home.className = "nav-link active";
+  } else if(parsing_url == "/product/goodInfoAll") {
+    let $goodInfoAll = document.querySelector("#productList");
+    $goodInfoAll.className = "nav-link active";
+  } else if(parsing_url == "/store/storeInfoAll") {
+    let $storeInfoAll = document.querySelector("#storeList");
+    $storeInfoAll.className = "nav-link active";
+  } else if(parsing_url == "/store/storeNumber") {
+    let $storeNumber = document.querySelector("#storeCount");
+    $storeNumber.className = "nav-link active";
+  }
+</script>

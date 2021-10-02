@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<link href="{{ url_for('static', filename='bootstrap.min.css') }}" rel="stylesheet">
+<nav>
+    <ul class="nav nav-tabs" style="width:100%;">
+      <li class="nav-item" style="margin-left: 3%; margin-right:50%;">
+        <a class="nav-link active" href="/">Home</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="/product/goodInfoAll">상품 목록</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="/store/storeInfoAll">판매점 목록</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="/store/storeNumber">지역별 판매점 수</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="/product/">상품 정보 검색</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="/store/">판매점 정보 검색</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="/price/">가격 정보 검색</a>
+      </li>
+    </ul>
+</nav>
+<h3>{{store.entpName}} 판매점 정보</h3>
+<table border="1">
+    <tr>
+        <th>업체 아이디</th><th>업체명</th><th>업체 업태</th>
+        <th>업체 지역</th><th>지역 상세</th><th>전화번호</th>
+        <th>우편번호</th><th>지번기본주소</th><th>지번상세주소</th><th>도로기본주소</th><th>도로상세주소</th>
+        <th>X좌표</th><th>Y좌표</th>
+    <tr>
+        <td>{{store.entpId}}</td>
+        <td>{{store.entpName}}</td>
+        {% for std in BUList %}
+            {% if store.entpTypeCode == std.code %}
+                <td>{{std.codeName}}</td>
+            {% endif%}
+        {% endfor %}
+
+        {% for std in ARList %}
+            {% if store.entpAreaCode == std.code %}
+                <td>{{std.codeName}}</td>
+            {% endif%}
+        {% endfor %}
+
+        {% for std in ARList %}
+            {% if store.areaDetailCode == std.code %}
+                <td>{{std.codeName}}</td>
+            {% endif%}
+        {% endfor %}
+        <td>{{store.entpTelno}}</td>
+        <td>{{store.postNo}}</td>
+        <td>{{store.plmkAddrBasic}}</td>
+        <td>{{store.plmkAddrDetail}}</td>
+        <td>{{store.roadAddrBasic}}</td>
+        <td>{{store.roadAddrDetail}}</td>
+        <td>{{store.xMapCoord}}</td>
+        <td>{{store.yMapCoord}}</td>
+    </tr>
+</table>
+</body>
+</html>

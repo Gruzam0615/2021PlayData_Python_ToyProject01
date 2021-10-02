@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<link href="{{ url_for('static', filename='bootstrap.min.css') }}" rel="stylesheet">
+<nav>
+    <ul class="nav nav-tabs">
+      <li class="nav-item">
+        <a class="nav-link active" href="/">Home</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="/product/goodInfoAll">상품 목록</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="/store/storeInfoAll">판매점 목록</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="/store/storeNumber">지역별 판매점 수</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="/product/">상품 정보 검색</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="/store/">판매점 정보 검색</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="/price/">가격 정보 검색</a>
+      </li>
+    </ul>
+</nav>
+<body>
+<h3>생필품 정보 전체</h3>
+<a href="/product/goodInfoAll">목록 확인</a>
+
+<h3>생필품 이름으로 검색</h3>
+<form action="/product/goodInfoByName" method="POST">
+    상품 아이디:<input type="text" name="goodId">
+    <input type="submit" value="검색">
+</form>
+
+<h3>판매점 정보 전체</h3>
+<a href="/store/storeInfoAll">목록 확인</a>
+
+<h3>판매점 이름으로 검색</h3>
+<form action="/store/storeInfoByName" method="POST">
+    판매점 이름 검색:<input type="text" name="entpName">
+    <input type="submit" value="검색">
+</form>
+
+<h3>판매점 지역별 업체 수</h3>
+<a href="/store/storeNumber">목록 확인</a>
+
+<h3>판매점 주소로 검색</h3>
+<form action="/store/storebyAddress" method="POST">
+    판매점 주소 검색:<input type="text" name="storeAddress">
+    <input type="submit" value="검색">
+</form>
+
+
+
+<h3>상품 이름으로 가격 검색</h3>
+<form action="/price/priceByGoodName" method="POST">
+    상품 이름:<input type="text" name="goodName">
+    날짜:<input type="date" name="dayFromForm">
+    <input type="submit" value="검색">
+</form>
+
+<h3>상품 이름으로 할인 판매점, 가격 검색</h3>
+<form action="/price/priceDCByGoodName" method="POST">
+    상품 이름:<input type="text" name="goodName">
+    날짜:<input type="date" name="dayFromForm">
+    <input type="submit" value="검색">
+</form>
+
+<h3>날짜별 상품 별 평균, 최대, 최소</h3>
+<form action="/price/priceData" method="POST">
+    상품 이름:<input type="text" name="goodName">
+    날짜:<input type="date" name="dayFromForm">
+    <input type="submit" value="검색">
+</form>
+
+<h3>날짜별 상품 별 평균, 최대, 최소값 변화</h3>
+<form action="/price/priceChange" method="POST">
+    상품 이름:<input type="text" name="goodName">
+    날짜1:<input type="date" name="dayFromForm1">
+    날짜2:<input type="date" name="dayFromForm2">
+    <input type="submit" value="검색">
+</form>
+
+<h3>주별 가격 변동 그래프</h3>
+<form action="/price/priceGraph" method="POST">
+    상품 이름:<input type="text" name="goodName">
+    날짜1:<input type="date" name="dayFromForm1">
+    날짜2:<input type="date" name="dayFromForm2">
+    <input type="submit" value="검색">
+</form>
+
+<h3>판매점 이름으로 가격 검색</h3>
+<form action="/price/priceByEntpName" method="POST">
+    판매점 이름:<input type="text" name="entpName">
+    날짜:<input type="date" name="dayFromForm">
+    <input type="submit" value="검색">
+</form>
+
+</body>
+</html>

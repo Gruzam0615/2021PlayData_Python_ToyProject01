@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>가격 평균, 최고가, 최저가 변화</title>
+</head>
+
+<body>
+<link href="{{ url_for('static', filename='bootstrap.min.css') }}" rel="stylesheet">
+<nav>
+    <ul class="nav nav-tabs" style="width:100%;">
+      <li class="nav-item" style="margin-left: 3%; margin-right:50%;">
+        <a class="nav-link" href="/">Home</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="/product/goodInfoAll">상품 목록</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="/store/storeInfoAll">판매점 목록</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="/store/storeNumber">지역별 판매점 수</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="/product/">상품 정보 검색</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="/store/">판매점 정보 검색</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link active" href="/price/">가격 정보 검색</a>
+      </li>
+    </ul>
+</nav>
+<!--
+<h3>{{goodName}}</h3>
+-->
+<br>
+<table border="1" class="table table-hover" style="width:70%;margin-left:auto;margin-right:auto;">
+    <thead class="thead-dark">
+        <tr class="text-center">
+            <th>시작일</th>
+            <th>종료일</th>
+        </tr>
+    </thead>
+
+    <tr class="text-center">
+        <td>{{day_fromForm_1}}</td>
+        <td>{{day_fromForm_2}}</td>
+    </tr>
+</table>
+<br>
+<table border="1" class="table table-hover" style="width:70%;margin-left:auto;margin-right:auto;">
+    <thead class="thead-dark">
+        <tr class="text-center">
+            <th>날짜</th><th>평균 가격 변동</th><th>최고값  변동</th><th>최저값 변동</th>
+        </tr>
+    </thead>
+    {% for i in range(week_diff+1) %}
+
+    <tr class="text-center">
+        <td>{{day[i]}}</td>
+        <td>{{priceData_avg[i]}}</td>
+        <td>{{priceData_max[i]}}</td>
+        <td>{{priceData_min[i]}}</td>
+
+    </tr>
+    {% endfor %}
+</table>
+<div style="margin-left:15rem;">
+    <div class="rounded float-left">
+        <img src="/static/images/avg.png">
+    </div>
+    <div class="rounded float-left">
+        <img src="/static/images/max.png">
+    </div>
+    <div class="rounded float-left">
+        <img src="/static/images/min.png">
+    </div>
+    <div class="rounded float-left">
+        <img src="/static/images/total.png">
+    </div>
+</div>
+</body>
+</html>

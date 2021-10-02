@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>가격 변동 정보</title>
+</head>
+<body>
+<link href="{{ url_for('static', filename='bootstrap.min.css') }}" rel="stylesheet">
+<nav>
+    <ul class="nav nav-tabs" style="width:100%;">
+      <li class="nav-item" style="margin-left: 3%; margin-right:50%;">
+        <a class="nav-link" href="/">Home</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="/product/goodInfoAll">상품 목록</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="/store/storeInfoAll">판매점 목록</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="/store/storeNumber">지역별 판매점 수</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="/product/">상품 정보 검색</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="/store/">판매점 정보 검색</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link active" href="/price/">가격 정보 검색</a>
+      </li>
+    </ul>
+</nav>
+<br>
+<div style="text-align: center;">
+    <label>날짜별 평균, 최고가, 최저가 변화</label>
+</div>
+<br>
+<br>
+
+<div class="d-flex justify-content-center">
+    <div class="row">
+        <form action="/price/priceChange" method="POST" >
+            <div class="form-group">
+                <label for="inputUserName" class="control-label">상품 이름</label>
+                <input type="text" class="form-control" style="width:30rem;" name="goodName" placeholder="상품 이름">
+            </div>
+            <div class="form-group">
+                <label>기준 날짜</label>
+                <input type="date" class="form-control" name="dayFromForm1">
+            </div>
+            <div class="form-group">
+                <label>비교 날짜</label>
+                <input type="date" class="form-control" name="dayFromForm2">
+            </div>
+            <div class="form-group">
+                <input type="submit" class="btn btn-primary mb-2 col-12" value="검색">
+            </div>
+        </form>
+    </div>
+</div>
+<br>
+<br>
+
+<div style="text-align: center;">
+    <label>주별 가격 변동</label>
+</div>
+<br>
+<br>
+<div class="d-flex justify-content-center">
+    <div class="row">
+
+    <form action="/price/priceGraph" method="POST">
+        <div class="form-group">
+            <label>상품 이름</label>
+            <input type="text" class="form-control" style="width:30rem;" name="goodName" placeholder="상품 이름">
+        </div>
+        <div class="form-group">
+            <label>시작일</label>
+            <input type="date" class="form-control" name="dayFromForm1">
+        </div>
+        <div class="form-group">
+            <label>종료일</label>
+            <input type="date" class="form-control" name="dayFromForm2">
+        </div>
+        <div class="form-group">
+            <input type="submit" class="btn btn-primary mb-2 col-12" value="검색">
+        </div>
+    </form>
+    </div>
+</div>
+</body>
+</html>
